@@ -66,7 +66,8 @@ public class BillController {
     }
 
     @GetMapping("/user/bill/pay")
-    public String pay(@RequestParam("id") int id,@RequestParam("price") int price){
+    public String pay(@RequestParam("id") int id,@RequestParam("price") int price,@RequestParam("roomp") int room,
+                      @RequestParam("servicep") int service){
         Customer customer = cusRepository.findById(id).get();
         customer.setStatus(1);
         Status s = statusRepository.findByName("Đang dọn dẹp");
@@ -78,6 +79,8 @@ public class BillController {
         Pay pay = new Pay();
         pay.setCustomer(customer);
         pay.setStatus(price);
+        pay.setRoom_revenue(room);
+        pay.setService_revenue(service);
         payRepository.save(pay);
         return "redirect:/user/bill/list";
     }
@@ -116,7 +119,8 @@ public class BillController {
     }
 
     @GetMapping("/admin/bill/pay")
-    public String payp(@RequestParam("id") int id,@RequestParam("price") int price){
+    public String payp(@RequestParam("id") int id,@RequestParam("price") int price,@RequestParam("roomp") int room,
+                       @RequestParam("servicep") int service){
         Customer customer = cusRepository.findById(id).get();
         customer.setStatus(1);
         Status s = statusRepository.findByName("Đang dọn dẹp");
@@ -128,6 +132,8 @@ public class BillController {
         Pay pay = new Pay();
         pay.setCustomer(customer);
         pay.setStatus(price);
+        pay.setRoom_revenue(room);
+        pay.setService_revenue(service);
         payRepository.save(pay);
         return "redirect:/admin/bill/list";
     }

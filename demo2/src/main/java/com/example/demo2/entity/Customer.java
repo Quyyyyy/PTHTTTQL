@@ -34,4 +34,12 @@ public class Customer {
     public void addRoom(Room room){
         this.room.add(room);
     }
+    public Room layTheoId(int id){
+        for(Room i:room){
+            if(i.getId()==id){
+                return i;
+            }
+        }
+        return null;
+    }
 }

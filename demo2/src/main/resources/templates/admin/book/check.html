@@ -73,7 +73,7 @@
             </a>
           </li>
             <li class="sidebar-list-item">
-                <a href="" target="_blank">
+                <a th:href="@{/admin/statitis/list}">
                     <span class="material-icons-outlined">analytics</span> Statistic
                 </a>
             </li>
@@ -134,21 +134,21 @@
     <!-- ApexCharts -->
     <!-- Custom JS -->
     <script src="js/scripts.js"></script>
-<!--    <script th:inline="javascript">-->
-<!--      //<![CDATA[-->
-<!--       var num = /*[[${num}]]*/;-->
-<!--      function addMoreCart(delta) {-->
-<!--        num = parseInt($('[name=num]').val())-->
-<!--        num += delta-->
-<!--        if(num < 1) num = 1;-->
-<!--        $('[name=num]').val(num)-->
-<!--      }-->
-
-<!--      function fixCartNum() {-->
-<!--        $('[name=num]').val(Math.abs($('[name=num]').val()))-->
-<!--      }-->
-<!--      //]]>-->
-<!--    </script>-->
+    <script th:inline="javascript">
+      // //<![CDATA[
+      // //  var num = /*[[${num}]]*/;
+      // function addMoreCart(delta) {
+      //   var num = parseInt($('[name=num]').val())
+      //   num += delta
+      //   if(num < 1) num = 1;
+      //   $('[name=num]').val(num)
+      // }
+      //
+      // function fixCartNum() {
+      //   $('[name=num]').val(Math.abs($('[name=num]').val()))
+      // }
+      // //]]>
+    </script>
 
   </body>
 </html>

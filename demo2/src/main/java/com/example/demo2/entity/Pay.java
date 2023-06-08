@@ -18,5 +18,9 @@ public class Pay {
     @JoinColumn(name="customer_id")
     private Customer customer;
     @Column
+    private int room_revenue;
+    @Column
+    private int service_revenue;
+    @Column
     private int status;
 }

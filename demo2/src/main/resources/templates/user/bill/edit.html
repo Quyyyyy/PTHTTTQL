@@ -142,7 +142,7 @@
         <p  th:object="${snp}" style="margin-top: 30px">Tổng hóa đơn: <span th:text="${snp}"></span></p>
 
         <th:block th:if="${customer.status==0}">
-          <a th:href="@{'/user/bill/pay?id='+${customer.id}+'&price='+${snp}}"><button class="buton" style="margin-top: 30px">Xác nhận</button></a>
+          <a th:href="@{'/user/bill/pay?id='+${customer.id}+'&price='+${snp}+'&roomp='+${tmp}+'&servicep='+${cmp}}"><button class="buton" style="margin-top: 30px">Xác nhận</button></a>
         </th:block>
         <th:block th:unless="${customer.status==0}">
           <a th:href="@{/user/bill/list}"><button class="buton" style="margin-top: 30px">Quay lại</button></a>
