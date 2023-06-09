@@ -89,7 +89,7 @@
                   <th>Số người ở</th>
                   <th>Số ngày ở</th>
                   <th>Ngày thuê</th>
-                  <th>Ngày Trả</th>
+                  <th>Ngày trả</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -100,8 +100,8 @@
                   <td th:text="${pro.cccd}"></td>
                   <td th:text="${pro.numofpeople}"></td>
                   <th th:text="${pro.numofday}"></th>
-                  <td th:text="${pro.checkout}"></td>
                   <td th:text="${pro.checkin}"></td>
+                  <td th:text="${pro.checkout}"></td>
                   <td>
                     <a th:href="@{'/user/book/edit?id='+${pro.id}}"><span class="material-icons-outlined">preview</span></a>
                     <a th:href="@{'/user/book/service?id='+${pro.id}}"><span class="material-icons-outlined">room_service</span></a>

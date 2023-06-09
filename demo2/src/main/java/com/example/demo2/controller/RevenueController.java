@@ -1,6 +1,7 @@
 package com.example.demo2.controller;
 
 import com.example.demo2.entity.dto.RevenueDto;
+import com.example.demo2.repository.CategoryRepository;
 import com.example.demo2.repository.CusRepository;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.servlet.http.HttpServletResponse;
@@ -27,6 +28,8 @@ import java.time.format.DateTimeFormatter;
 public class RevenueController {
     @Autowired
     CusRepository cusRepository;
+    @Autowired
+    CategoryRepository cateRepository;
 
     @GetMapping("/list")
     public String chart(Model model){
@@ -43,6 +46,26 @@ public class RevenueController {
         }
         model.addAttribute("keySet",data.keySet());
         model.addAttribute("values",data.values());
+        return "admin/statitis/index";
+    }
+
+    @GetMapping("/tron")
+    public String chartp(Model model){
+        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//        int y = LocalDate.now().getYear();
+//        String n = String.valueOf(y) + "-01-01";
+//        String x = String.valueOf(y) + "-12-31";
+//        LocalDate t = LocalDate.parse(n, formatter);
+//        LocalDate m = LocalDate.parse(x, formatter);
+        List<Object[]> result = cateRepository.doanhthu();
+        Map<String,Long> data = new LinkedHashMap<String, Long>();
+        for(Object[] i:result){
+            String k = (String) i[0];
+            data.put(k,(long)i[1]);
+        }
+        model.addAttribute("key",data.keySet());
+        model.addAttribute("val",data.values());
+        //model.addAttribute("chartData",data);
         return "admin/statitis/index";
     }
 
